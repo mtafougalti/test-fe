@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header">
+        <h4>Add New Environment</h4>
+    </div>
+    <div class="card-body col-md-8">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <label for="key" class="col-sm-2 col-form-label">Key:</label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="id" placeholder="key" name="key" class="form-control" id="key">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" formControlName="name" placeholder="name" name="name" class="form-control" id="name">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">Description:</label>
+                <div class="col-sm-10">
+                    <input formControlName="description" placeholder="description" name="description" class="form-control" id="description">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="database" class="col-sm-2 col-form-label">Database:</label>
+                <div class="col-sm-10">
+                    <input formControlName="database" placeholder="database" name="database" class="form-control" id="database">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-success custom-save-width">Save</button>
+                    <button type="button" (click)="cancel()" class="btn btn-warning custom-cancel-width">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
