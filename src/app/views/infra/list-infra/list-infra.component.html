@@ -3,15 +3,14 @@
         <h4>Infrastructure</h4>
     </div>
     <div class="card-body">
-        <ul class="nav nav-tabs" *ngIf="serverMap">
+        <ul class="nav nav-tabs border-0" id="myTab" role="tablist" *ngIf="serverMap">
             <li class="nav-item" *ngFor="let entry of serverMap | keyvalue">
-                <a class="nav-link" [ngClass]="{'active':entry.key == 'ac'}" data-toggle="tab" href="#infra{{entry.key}}">{{entry.key}}</a>
+                <a class="nav-link border border-bottom-0" [ngClass]="{'active':entry.key == 'ac'}" data-toggle="tab" href="#infra{{entry.key}}">{{entry.key}}</a>
             </li>
         </ul>
-        <br />
         <div class="tab-content" *ngIf="serverMap">
             <ng-container *ngFor="let entry of serverMap | keyvalue">
-                <div class="tab-pane" [ngClass]="(entry.key == 'ac')?'active':'fade'" id="infra{{entry.key}}">
+                <div class="tab-pane h-100 p-3 border" [ngClass]="(entry.key == 'ac')?'active':'fade'" id="infra{{entry.key}}">
                     <table class="table table-bordered">
                         <thead class="thead-light">
                             <tr>
