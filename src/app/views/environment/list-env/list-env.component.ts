@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from 'src/app/service/http-client.service';
 import { Router } from '@angular/router';
+import { Environment } from 'src/app/Environment';
 
 @Component({
   selector: 'list-env',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListEnvComponent implements OnInit {
 
   helloMessage: string;
-  yamlConfig : Object;
+  listEnv : Environment[];
 
   constructor(private router: Router, private httpClientService: HttpClientService) { }
 
@@ -35,7 +36,7 @@ export class ListEnvComponent implements OnInit {
   deleteEnv(id: string): void {
     this.httpClientService.delete(id)
       .subscribe( data => {
-        this.yamlConfig = data;
+        this.listEnv = data;
       })
   };
 
@@ -45,8 +46,8 @@ export class ListEnvComponent implements OnInit {
   }
 
   yaml(response) {
-    this.yamlConfig = response;
-    console.log(this.yamlConfig);
+    this.listEnv = response;
+    console.log(this.listEnv);
   }
 
 }

@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header bg-white">
+        <h4>Infrastructure</h4>
+    </div>
+    <div class="card-body">
+        <ul class="nav nav-tabs" *ngIf="serverMap">
+            <li class="nav-item" *ngFor="let entry of serverMap | keyvalue">
+                <a class="nav-link" [ngClass]="{'active':entry.key == 'ac'}" data-toggle="tab" href="#infra{{entry.key}}">{{entry.key}}</a>
+            </li>
+        </ul>
+        <br />
+        <div class="tab-content" *ngIf="serverMap">
+            <ng-container *ngFor="let entry of serverMap | keyvalue">
+                <div class="tab-pane" [ngClass]="(entry.key == 'ac')?'active':'fade'" id="infra{{entry.key}}">
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Shortname</th>
+                                <th scope="col">Longname</th>
+                                <th scope="col">Zone</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Environment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let server of entry.value">
+                                <th scope="row">{{server.id}}</th>
+                                <td>{{server.shortname}}</td>
+                                <td>{{server.longname}}</td>
+                                <td>{{server.zone}}</td>
+                                <td>{{server.location}}</td>
+                                <td>{{server.user}}</td>
+                                <td>{{server.env.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

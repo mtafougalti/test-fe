@@ -10,6 +10,7 @@ import { EnvAddComponent } from './env-add/env-add.component';
 import { EnvEditComponent } from './env-edit/env-edit.component';
 import { HeaderComponent } from './views/layout/header/header.component';
 import { ListEnvComponent } from './views/environment/list-env/list-env.component';
+import { ListInfraComponent } from './views/infra/list-infra/list-infra.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ListEnvComponent } from './views/environment/list-env/list-env.componen
     EnvAddComponent,
     HeaderComponent,
     EnvEditComponent,
-    ListEnvComponent
+    ListEnvComponent,
+    ListInfraComponent
   ],
   imports: [
     BrowserModule,

@@ -15,25 +15,29 @@ export class HttpClientService {
   }
 
   yaml(){
-    return this.httpClient.get<Object>("http://localhost:8080/yaml");
+    return this.httpClient.get<Environment[]>("http://localhost:8080/yaml");
   }
 
   get(id){
-    return this.httpClient.get<Object>("http://localhost:8080/get/"+id);
+    return this.httpClient.get<Environment>("http://localhost:8080/get/"+id);
   }
 
-  add(env): Observable<Environment> {
+  add(env): Observable<Environment[]> {
     console.log(env);
-    return this.httpClient.post<Environment>("http://localhost:8080/add", env);
+    return this.httpClient.post<Environment[]>("http://localhost:8080/add", env);
   }
 
-  update(env): Observable<Environment> {
+  update(env): Observable<Environment[]> {
     console.log(env);
-    return this.httpClient.post<Environment>("http://localhost:8080/update", env);
+    return this.httpClient.post<Environment[]>("http://localhost:8080/update", env);
   }
 
-  delete(id): Observable<Environment>{
+  delete(id): Observable<Environment[]>{
     console.log("id in service" + id);
-    return this.httpClient.delete<Environment>("http://localhost:8080/delete/"+id);
+    return this.httpClient.delete<Environment[]>("http://localhost:8080/delete/"+id);
+  }
+
+  getInfraMap(){
+    return this.httpClient.get<Environment[]>("http://localhost:8080/infraList");
   }
 }

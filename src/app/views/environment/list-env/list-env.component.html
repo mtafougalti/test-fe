@@ -3,8 +3,8 @@
         <h4>Environment</h4>
     </div>
     <div class="card-body">
-        <table class="table table-bordered" *ngIf="yamlConfig && yamlConfig.environment">
-            <thead>
+        <table class="table table-bordered" *ngIf="listEnv">
+            <thead class="thead-light">
                 <tr>
                     <th>#</th>
                     <th>Name</th>
@@ -14,15 +14,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let entry of yamlConfig.environment | keyvalue">
-                    <th> {{entry.key}} </th>
-                    <td> {{entry.value.name}} </td>
-                    <td> {{entry.value.description}} </td>
-                    <td> {{entry.value['database']}} </td>
+                <tr *ngFor="let env of listEnv">
+                    <th> {{env.id}} </th>
+                    <td> {{env.name}} </td>
+                    <td> {{env.description}} </td>
+                    <td> {{env.database}} </td>
                     <td>
                         <div>
-                            <button class="btn btn-success" (click)="deleteEnv(entry.key)" style="float: left;"> Delete</button>
-                            <button class="btn btn-success" (click)="editEnv(entry.key)" style="float: left; margin-left: 5px;"> Edit</button>
+                            <button class="btn btn-success" (click)="deleteEnv(env.id)" style="float: left;"> Delete</button>
+                            <button class="btn btn-success" (click)="editEnv(env.id)" style="float: left; margin-left: 5px;"> Edit</button>
                         </div>
                     </td>
                 </tr>
